@@ -1,13 +1,13 @@
 const { getAllLaunches, addNewLaunch, abortLaunch, existsLaunchWithId } = require('../models/launches.model');
-
+const { getPagination } = require('../services/query');
 async function httpGetAllLaunch(req, res) {
-    const launches = await getAllLaunches();
+    const { skip, limit } = await getPagination(req.query);
+    const launches = await getAllLaunches(skip, limit);
     return res.status(200).json(launches);
 }
 
 async function httpAddNewLaunch(req, res) {
     const launch = req.body;
-
     // VALIDATION
     if (!launch.mission || !launch.rocket || !launch.destionation || !launch.launchDate) {
         return res.status(400).json({ error: 'Missing required launch property' });

@@ -2,7 +2,7 @@ const app = require('./app');
 const PORT = 3000;
 const { mongoConnect } = require('./services/mongo');
 const { loadPlanetsData } = require('./models/planets.model');
-const { populateLaunches } = require('./models/launches.model');
+const { loadLaunchData } = require('./models/launches.model');
 
 // LOAD BALANCER
 // USE PM2 TO RUN MULTIPLE INSTANCES OF THE SERVER
@@ -19,8 +19,8 @@ const { populateLaunches } = require('./models/launches.model');
 async function start() {
     // Connect to the database
     await mongoConnect();
-    // await loadPlanetsData();
-    // await populateLaunches();
+    await loadPlanetsData();
+    await loadLaunchData();
     // Start the server
     app.listen(PORT, () => {
         console.log('Server is running on http://localhost:3000');
