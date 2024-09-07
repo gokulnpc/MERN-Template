@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>MERN TEMPLATE</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <h1>MERN TEMPLATE</h1>
-    <!-- <img src="./bale.jpg"  alt="bale" /> -->
-    <button id="fetch">Fetch Data</button>
-    <p id="data"></p>
-    <script>
-      const fetchBtn = document.getElementById("fetch");
-      const data = document.getElementById("data");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back End Development Template</title>
+</head>
+<body>
+    <h1>Endpoints</h1>
+    <button id="getPlanets">GET Planets</button>
+    <pre id="planets"></pre>
+    <script src="script.js"></script>
 
-      fetchBtn.addEventListener("click", async () => {
-        const response = await fetch("/v1/planets");
-        const json = await response.json();
-        data.innerText = JSON.stringify(json);
-      });
-    </script>
-  </body>
+    <h1>Security Testing</h1>
+    <a href="/secret">Show me!</a><br/>
+    <a href="/auth/google">Google login</a><br/>
+    <a href="/auth/logout">Sign out</a><br/>
+</body>
 </html>
