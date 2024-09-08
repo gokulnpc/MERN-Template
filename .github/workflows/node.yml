@@ -10,13 +10,17 @@ on:
 
 jobs:
   build:
+    env:
+      CI: true
+      MONGO_URL: mongodb://localhost:27017/test
+
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [20.x, 22.x]
-        mongodb-version: ['7.0']
-
+        mongodb-version: ['6.0', '7.0', '8.0']
+        
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -26,7 +30,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Use MongoDB from GitHub actions
+    - name: Start MongoDB
       uses: supercharge/mongodb-github-action@1.11.0
       with:
         mongodb-version: ${{ matrix.mongodb-version }}
