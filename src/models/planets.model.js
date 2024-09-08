@@ -47,7 +47,6 @@ async function loadPlanetsData() {
             });
     });
 }
-
 async function getAllPlanets() {
     return await Planet.find({},
         {
