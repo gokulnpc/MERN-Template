@@ -1,9 +1,9 @@
-# MERN Template
+#MERN Template
 
-## Description
+##Description
 This is a template for MERN stack applications. It is a simple application that has a backend server and a frontend client. 
 
-## Features
+##Features
 - Backend server using Express
 - Frontend client using HTML, CSS, and JavaScript
 - Paginating Endpoints
@@ -15,10 +15,10 @@ This is a template for MERN stack applications. It is a simple application that 
 - MongoDB database
 - GitHub Actions for CI/CD
 
-## How to run
+##How to run
 npm install
 npm start 
 
-## Docker Commands
+##Docker Commands
 docker build . -t gokulnpc/mern-template
 docker run -it -p 8000:8000 -e PORT=8000 gokulnpc/mern-template
