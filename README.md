@@ -21,4 +21,21 @@ This is a template for MERN stack applications. It is a simple application that 
 
 ## Docker Commands
 - docker build . -t gokulnpc/mern-template
-- docker run -it -p 8000:8000 -e PORT=8000 gokulnpc/mern-template
+- docker run -it -p 3000:3000 gokulnpc/mern-template
+- docker run --restart=always -p 3000:3000 gokulnpc/mern-template
+- docker push gokulnpc/mern-template
+
+## AWS EC2 Instance
+- chmod 400 "mern.pem"
+- ssh -i "mern.pem" ec2-user@ec2-11-111-111-111.compute-1.amazonaws.com
+- sudo yum update -y
+- sudo yum install docker
+- sudo docker info
+- sudo usermod -a -G docker ec2-user
+- exit
+- ssh -i "mern.pem" ec2-user@ec2-11-111-111-111.compute-1.amazonaws.com
+- docker login
+- docker run --restart=always -p 3000:3000 gokulnpc/mern-template
+
+
+
